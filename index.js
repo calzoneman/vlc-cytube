@@ -1,5 +1,18 @@
 var VLCPlayer = require('./vlc');
-var tube = require('./tube');
+
+if (process.argv.length < 4) {
+    console.log('usage: node index.js <websocket url> <channel> [<password>]');
+    process.exit();
+}
+
+var url = process.argv[2];
+var channel = process.argv[3];
+var pw;
+if (process.argv.length > 4) {
+    pw = process.argv[4];
+}
+
+var tube = require('./tube')(process.argv[2], process.argv[3], pw);
 var SYNC_ACCURACY = 2;
 
 var vlc = new VLCPlayer();
@@ -19,14 +32,10 @@ tube.onTimeChange(function (time) {
     });
 });
 
-tube.onStateChange(function (state) {
-    switch (state) {
-        case 1:
-            vlc.play();
-            break;
-        case 2:
-        case 3:
-            vlc.pause();
-            break;
+tube.onStateChange(function (paused) {
+    if (!paused) {
+        vlc.play();
+    } else {
+        vlc.pause();
     }
 });

@@ -11,4 +11,4 @@ Clone the repo, execute `npm install` inside the directory to fetch dependencies
 
 You may have to modify the program spawned in vlc.js if `vlc` isn't in your `$PATH`.
 
-Run it as `node index.js <websocket url>` e.g. `node index.js ws://sea.cytu.be:8880`
+Run it as `node index.js <websocket url> <channel> [<password>]` e.g. `node index.js ws://sea.cytu.be:8880 test` or `node index.js ws://sea.cytu.be>8880 secretroom password`
