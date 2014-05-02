@@ -76,7 +76,7 @@ module.exports = {
 
         var options = {
             host: 'www.dailymotion.com',
-            path: '/embed/video/' + id.substring(2),
+            path: '/embed/video/' + id.substring,
             headers: {
                 'User-Agent': 'Mozilla/5.0',
                 'Referer': 'www.dailymotion.com'
@@ -137,12 +137,11 @@ module.exports = {
     },
 
     soundcloud: function (id, cb) {
+        var split = id.split('/');
         var options = {
             host: 'api.soundcloud.com',
-            path: '/i1/tracks/' + id.substring(2) + '/streams?client_id=b45b1aa10f1ac2941910a7f0d10f8e28&secret_token='
+            path: '/i1/tracks/' + split[split.length - 1] + '/streams?client_id=b45b1aa10f1ac2941910a7f0d10f8e28&secret_token='
         };
-
-        console.log(options.path);
 
         var parse = function (data) {
             try {

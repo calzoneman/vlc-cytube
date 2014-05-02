@@ -1,7 +1,9 @@
 vlc-cytube
 =======
 
-Node.js script to act as an interface between CyTube and VLC.  Supports YouTube/Vimeo/Dailymotion/Soundcloud/RTMP.  Supports synchronization.
+Node.js script to act as an interface between CyTube and VLC.  Supports YouTube/Vimeo/Dailymotion/~~Soundcloud~~/RTMP.  Supports synchronization.
+
+Soundcloud support is currently broken.
 
 Confirmed working on Linux.  Does not work on Windows due to some strangeness with VLC's RC interface on Windows.  Possibly works on OS X?  I don't have a Mac to test with.
 
